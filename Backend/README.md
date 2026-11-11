@@ -34,3 +34,11 @@ Endpoints:
 - `/api/viagens`
 
 Todos possuem GET, POST e, quando aplicável, PUT/DELETE por ID.
+
+Para subir no github atráves do git:
+
+- `git init`
+- `git add . (ou o que você quer adicionar)`
+- `git commit -m " " ou git commit --allow-empty-message -m ""`
+- `git Branch -M origin main`
+-  `git push`
