@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#031745" />
+    <title>Login do aluno | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <script src="../global/global.js"></script>
+  </head>
+
+  <body data-perfil="aluno">
+    <main class="auth">
+      <aside class="auth-aside">
+        <a href="./index.html" class="logo" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+        <div>
+          <h2>Seu transporte escolar, na palma da mão.</h2>
+          <p>Consulte seu ônibus, horários e embarques com segurança.</p>
+          <ul class="auth-points">
+            <li><span class="ico i-bus" aria-hidden="true"></span> Veja o ônibus vinculado a você</li>
+            <li><span class="ico i-clock" aria-hidden="true"></span> Acompanhe horários de embarque</li>
+            <li><span class="ico i-check" aria-hidden="true"></span> Histórico de embarques registrados</li>
+          </ul>
+        </div>
+        <small>© 2026 Transporta PF</small>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-card">
+          <a href="./index.html" class="logo logo-mobile" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+          <a href="./login.html" class="back-link"><span class="ico i-arrow" aria-hidden="true"></span> Trocar tipo de acesso</a>
+          <span class="auth-badge"><span class="ico i-user" aria-hidden="true"></span></span>
+          <h1>Área do aluno</h1>
+          <p class="lead">Entre para ver seu ônibus e seus embarques.</p>
+
+          <form id="loginForm" novalidate>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="seuemail@exemplo.com" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="password">Senha</label>
+              <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Digite sua senha" autocomplete="current-password" required />
+                <button type="button" id="togglePassword" aria-label="Mostrar senha" aria-pressed="false"><span class="ico i-eye" aria-hidden="true"></span></button>
+              </div>
+            </div>
+
+            <div class="field-row"><a href="./recuperar-senha.html" id="forgotPassword">Esqueceu a senha?</a></div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-block" id="loginButton">Entrar na conta</button>
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="auth-divider"><span>OU</span></div>
+          <p class="auth-alt">Ainda não possui uma conta? <a href="./cadastro.html?perfil=aluno">Criar conta de aluno</a></p>
+          <p class="auth-alt auth-switch">É servidor ou trabalhador público? <a href="./login-servidor.html">Entrar como servidor</a></p>
+          <p class="auth-foot">© 2026 Transporta PF. Todos os direitos reservados.</p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/login-perfil.js"></script>
+  </body>
+</html>

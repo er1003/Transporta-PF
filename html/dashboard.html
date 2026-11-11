@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#031745" />
+    <title>Painel | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <script src="../global/global.js"></script>
+  </head>
+
+  <body>
+    <a href="#conteudo" class="skip">Pular para o conteúdo</a>
+
+    <div class="dashboard">
+      <!-- MENU LATERAL -->
+      <aside class="sidebar" id="sidebar" aria-label="Menu lateral">
+        <a href="./dashboard.html" class="logo sidebar-logo" aria-label="Transporta PF — Painel">
+          <img src="../global/assets/logo-mark.svg" alt="" />
+          <span>Transporta <strong>PF</strong></span>
+        </a>
+
+        <div class="menu-label">Menu principal</div>
+        <nav class="navigation" aria-label="Principal">
+          <a href="./dashboard.html" class="nav-link active" aria-current="page"><span class="ico i-home" aria-hidden="true"></span> Visão geral</a>
+          <a href="#" class="nav-link is-soon" aria-disabled="true"><span class="ico i-list" aria-hidden="true"></span> Presenças <em>Em breve</em></a>
+          <a href="#" class="nav-link is-soon" aria-disabled="true"><span class="ico i-clock" aria-hidden="true"></span> Histórico <em>Em breve</em></a>
+        </nav>
+
+        <div class="menu-label secondary-label">Conta</div>
+        <nav class="navigation" aria-label="Conta">
+          <a href="#" class="nav-link is-soon" aria-disabled="true"><span class="ico i-gear" aria-hidden="true"></span> Configurações <em>Em breve</em></a>
+          <button type="button" class="nav-link logout-button" id="logoutButton"><span class="ico i-logout" aria-hidden="true"></span> Sair da conta</button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-indicator" aria-hidden="true"></span>
+          <span>Transporta PF</span>
+          <small>Área do usuário</small>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <div class="main-content">
+        <header class="topbar">
+          <button class="menu-toggle icon-button" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+            <span class="ico i-menu" aria-hidden="true"></span>
+          </button>
+
+          <div class="breadcrumb">Painel <span>/</span> Visão geral</div>
+
+          <div class="user-area">
+            <button type="button" class="icon-button" aria-label="Notificações (nenhuma nova)"><span class="ico i-bell" aria-hidden="true"></span></button>
+            <div class="user-avatar" id="userAvatar" aria-hidden="true">U</div>
+            <div class="user-info">
+              <strong id="userName">Usuário</strong>
+              <small>Minha conta</small>
+            </div>
+          </div>
+        </header>
+
+        <main class="content" id="conteudo">
+          <!-- BOAS-VINDAS -->
+          <section class="welcome-section">
+            <div>
+              <span class="eyebrow">Seu espaço Transporta PF</span>
+              <h1>Olá, <span id="welcomeName">seja bem-vindo!</span></h1>
+              <p>Acompanhe suas atividades e gerencie sua conta em um só lugar.</p>
+            </div>
+            <div class="welcome-icon" aria-hidden="true"><span class="ico i-bus"></span></div>
+          </section>
+
+          <!-- INDICADORES -->
+          <section class="section" aria-labelledby="h-geral">
+            <div class="section-heading">
+              <h2 id="h-geral">Visão geral</h2>
+              <p>Resumo das suas atividades.</p>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card">
+                <div class="stat-icon"><span class="ico i-list" aria-hidden="true"></span></div>
+                <span class="stat-label">Minhas presenças</span>
+                <strong class="stat-value">0</strong>
+                <small>Nenhuma presença registrada</small>
+              </article>
+              <article class="stat-card">
+                <div class="stat-icon ok"><span class="ico i-check" aria-hidden="true"></span></div>
+                <span class="stat-label">Concluídas</span>
+                <strong class="stat-value">0</strong>
+                <small>Presenças finalizadas</small>
+              </article>
+              <article class="stat-card">
+                <div class="stat-icon warn"><span class="ico i-clock" aria-hidden="true"></span></div>
+                <span class="stat-label">Em andamento</span>
+                <strong class="stat-value">0</strong>
+                <small>Presenças em andamento</small>
+              </article>
+            </div>
+          </section>
+
+          <!-- ATIVIDADES -->
+          <section class="section" aria-labelledby="h-ativ">
+            <div class="section-heading">
+              <h2 id="h-ativ">Atividades recentes</h2>
+              <p>Acompanhe suas últimas movimentações.</p>
+            </div>
+
+            <div class="activity-card">
+              <div class="empty-icon" aria-hidden="true"><span class="ico i-target"></span></div>
+              <h3>Nenhuma atividade por enquanto</h3>
+              <p>Quando você começar a utilizar o Transporta PF, suas atividades aparecerão aqui.</p>
+            </div>
+          </section>
+
+          <footer class="dashboard-footer">© 2026 Transporta PF. Todos os direitos reservados.</footer>
+        </main>
+      </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <script type="module" src="../js/dashboard.js"></script>
+  </body>
+</html>

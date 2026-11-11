@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#031745" />
+    <title>Nova senha | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <script src="../global/global.js"></script>
+  </head>
+
+  <body>
+    <main class="auth">
+      <aside class="auth-aside">
+        <a href="./index.html" class="logo" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+        <div>
+          <h2>Escolha uma nova senha segura.</h2>
+          <p>Use pelo menos 8 caracteres para proteger sua conta.</p>
+        </div>
+        <small>© 2026 Transporta PF</small>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-card">
+          <a href="./index.html" class="logo logo-mobile" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+          <a href="./login.html" class="back-link"><span class="ico i-arrow" aria-hidden="true"></span> Voltar para o login</a>
+          <div class="auth-badge" aria-hidden="true"><span class="ico i-lock"></span></div>
+          <h1>Crie uma nova senha</h1>
+          <p class="lead">Escolha uma senha segura para proteger sua conta Transporta PF.</p>
+
+          <form id="resetForm" novalidate>
+            <div class="field">
+              <label for="password">Nova senha</label>
+              <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Digite sua nova senha" minlength="8" autocomplete="new-password" required />
+                <button type="button" class="toggle-password" data-target="password" aria-label="Mostrar senha" aria-pressed="false"><span class="ico i-eye" aria-hidden="true"></span></button>
+              </div>
+            </div>
+            <small class="input-hint">Sua senha deve ter pelo menos 8 caracteres.</small>
+
+            <div class="field">
+              <label for="confirmPassword">Confirmar nova senha</label>
+              <div class="password-wrapper">
+                <input type="password" id="confirmPassword" placeholder="Digite novamente sua senha" minlength="8" autocomplete="new-password" required />
+                <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Mostrar confirmação" aria-pressed="false"><span class="ico i-eye" aria-hidden="true"></span></button>
+              </div>
+            </div>
+
+            <button type="submit" id="resetButton" class="btn btn-primary btn-large btn-block">Salvar nova senha</button>
+            <p id="resetMessage" class="message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="security-note">
+            <span class="ico i-lock" aria-hidden="true"></span>
+            <p>Sua senha é armazenada com segurança.</p>
+          </div>
+          <p class="auth-foot">© 2026 Transporta PF. Todos os direitos reservados.</p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/redefinir-senha.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#031745" />
+    <title>Criar conta | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <script src="../global/global.js"></script>
+  </head>
+
+  <body>
+    <main class="auth">
+      <aside class="auth-aside">
+        <a href="./index.html" class="logo" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+        <div>
+          <h2>Comece a organizar o transporte escolar.</h2>
+          <p>Crie sua conta gratuita e tenha tudo centralizado em poucos minutos.</p>
+          <ul class="auth-points">
+            <li><span class="ico i-user" aria-hidden="true"></span> Alunos e escolas organizados</li>
+            <li><span class="ico i-bus" aria-hidden="true"></span> Ônibus vinculados a cada aluno</li>
+            <li><span class="ico i-check" aria-hidden="true"></span> Embarques registrados com segurança</li>
+          </ul>
+        </div>
+        <small>© 2026 Transporta PF</small>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-card">
+          <a href="./index.html" class="logo logo-mobile" aria-label="Transporta PF — Página inicial"><img src="../global/assets/logo-mark.svg" alt="" /><span>Transporta <strong>PF</strong></span></a>
+          <h1>Crie sua conta</h1>
+          <p class="lead">Preencha seus dados para começar.</p>
+
+          <form id="signupForm" novalidate>
+            <fieldset class="perfil-toggle">
+              <legend>Tipo de conta</legend>
+              <label class="perfil-option">
+                <input type="radio" name="perfil" value="aluno" checked />
+                <span><span class="ico i-user" aria-hidden="true"></span> Aluno</span>
+              </label>
+              <label class="perfil-option">
+                <input type="radio" name="perfil" value="servidor" />
+                <span><span class="ico i-shield" aria-hidden="true"></span> Servidor</span>
+              </label>
+            </fieldset>
+
+            <div class="field">
+              <label for="name">Nome completo</label>
+              <input type="text" id="name" placeholder="Digite seu nome" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="signupEmail" id="signupEmailLabel">E-mail</label>
+              <input type="email" id="signupEmail" placeholder="seuemail@exemplo.com" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="signupPassword">Senha</label>
+              <div class="password-wrapper">
+                <input type="password" id="signupPassword" placeholder="Crie uma senha" autocomplete="new-password" minlength="8" required />
+                <button type="button" class="toggle-password" data-target="signupPassword" aria-label="Mostrar senha" aria-pressed="false"><span class="ico i-eye" aria-hidden="true"></span></button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="confirmPassword">Confirmar senha</label>
+              <div class="password-wrapper">
+                <input type="password" id="confirmPassword" placeholder="Digite novamente sua senha" autocomplete="new-password" required />
+                <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Mostrar senha" aria-pressed="false"><span class="ico i-eye" aria-hidden="true"></span></button>
+              </div>
+            </div>
+
+            <small id="passwordFeedback" class="input-hint" aria-live="polite">Utilize pelo menos 8 caracteres.</small>
+
+            <div class="check-row">
+              <input type="checkbox" id="terms" aria-describedby="termsFeedback" />
+              <div>
+                <label for="terms">
+                  Li e concordo com os
+                  <a href="./termos.html" target="_blank" rel="noopener">Termos de Uso</a> e a
+                  <a href="./privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.
+                </label>
+                <small id="termsFeedback" role="alert"></small>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-block" id="signupButton">Criar minha conta</button>
+            <p id="signupMessage" class="message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="auth-divider"><span>OU</span></div>
+          <p class="auth-alt">Já possui uma conta? <a href="./login.html" id="loginLink">Fazer login</a></p>
+          <p class="auth-foot">© 2026 Transporta PF. Todos os direitos reservados.</p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/cadastro.js"></script>
+  </body>
+</html>
