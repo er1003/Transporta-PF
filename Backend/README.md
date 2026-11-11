@@ -17,6 +17,9 @@ python -m venv Backend/venv
 Backend\venv\Scripts\activate
 pip install -r Backend/requirements.txt
 python -m Backend.app
+
+cd transporta-pf
+python -m http.server 5000
 ```
 
 API de teste:
