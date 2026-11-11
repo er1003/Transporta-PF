@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#031745"><title>Perfil e configurações | Transporta PF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global/global.css"><link rel="stylesheet" href="../css/portal.css">
+<script src="../global/global.js"></script>
+</head>
+<body data-page="perfil">
+<header class="portal-top">
+<a class="portal-brand" href="./aluno.html"><span class="brand-mark">T</span><span>Transporta <strong>PF</strong></span></a>
+<nav class="portal-menu" aria-label="Navegação"><a href="./aluno.html">Painel</a><a class="active" href="./perfil-configuracoes.html">Perfil e configurações</a></nav>
+<div class="portal-actions"><button class="portal-icon" id="themeToggle" aria-label="Alternar tema">◐</button><div class="portal-user"><div class="avatar" id="avatar">U</div><div class="user-copy"><strong id="userName">Usuário</strong><small id="roleLabel">Minha conta</small></div></div></div>
+</header>
+<main class="portal-main">
+<section class="hero"><div><span class="eyebrow">Minha conta</span><h1>Perfil e configurações</h1><p>Gerencie seus dados pessoais e personalize a experiência no Transporta PF.</p></div><div class="hero-badge">⚙</div></section>
+<div class="profile-layout section">
+<aside class="card profile-nav" aria-label="Seções da conta"><button class="active" data-tab="perfil">Dados pessoais</button><button data-tab="preferencias">Preferências</button><button data-tab="seguranca">Segurança</button></aside>
+<section>
+<div class="card profile-card tab-panel" id="tab-perfil">
+<div class="profile-head"><div class="profile-avatar" id="profileAvatar">U</div><div><h2>Dados pessoais</h2><p>Atualize as informações exibidas na sua conta.</p></div></div>
+<form id="profileForm">
+<div class="form-grid" style="margin-top:24px">
+<div class="field"><label for="fullName">Nome completo</label><input id="fullName" type="text" autocomplete="name" required><small>Esse nome será usado nas telas do sistema.</small></div>
+<div class="field"><label for="email">E-mail</label><input id="email" type="email" disabled><small>O e-mail é gerenciado pela autenticação.</small></div>
+<div class="field"><label for="phone">Telefone</label><input id="phone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel"></div>
+<div class="field"><label for="perfil">Perfil</label><input id="perfil" type="text" disabled></div>
+</div>
+<div class="form-actions"><button class="btn btn-primary" type="submit" id="saveProfile">Salvar alterações</button></div><div class="message" id="profileMessage" role="status"></div>
+</form></div>
+<div class="card profile-card tab-panel" id="tab-preferencias" hidden>
+<div class="profile-head"><div class="profile-avatar">☀</div><div><h2>Preferências</h2><p>Escolha como o sistema deve se comportar.</p></div></div>
+<div class="settings-row"><div><h3>Tema escuro</h3><p>Reduz o brilho da interface em ambientes escuros.</p></div><label class="switch"><input type="checkbox" id="darkMode"><span class="slider"></span></label></div>
+<div class="settings-row"><div><h3>Alto contraste</h3><p>Aumenta a diferença entre texto e fundo.</p></div><label class="switch"><input type="checkbox" id="contrastMode"><span class="slider"></span></label></div>
+<div class="settings-row"><div><h3>Fonte acessível</h3><p>Usa uma fonte mais simples para leitura.</p></div><label class="switch"><input type="checkbox" id="fontMode"><span class="slider"></span></label></div>
+</div>
+<div class="card profile-card tab-panel" id="tab-seguranca" hidden>
+<div class="profile-head"><div class="profile-avatar">🔒</div><div><h2>Segurança</h2><p>Opções relacionadas ao acesso da sua conta.</p></div></div>
+<div class="settings-row"><div><h3>Redefinir senha</h3><p>Receba um link para criar uma nova senha.</p></div><a class="btn btn-secondary" href="./recuperar-senha.html">Alterar senha</a></div>
+<div class="settings-row"><div><h3>Sair da conta</h3><p>Encerra a sessão neste dispositivo.</p></div><button class="btn btn-secondary" id="logoutButton">Sair</button></div>
+</div>
+</section></div>
+<footer class="portal-footer">© 2026 Transporta PF · Perfil e configurações</footer>
+</main>
+<script type="module" src="../js/portal.js"></script>
+</body></html>

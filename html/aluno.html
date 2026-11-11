@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#031745"><title>Área do aluno | Transporta PF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global/global.css"><link rel="stylesheet" href="../css/portal.css">
+<script src="../global/global.js"></script>
+</head>
+<body data-page="aluno">
+<header class="portal-top">
+<button class="portal-icon mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+<a class="portal-brand" href="./aluno.html"><span class="brand-mark">T</span><span>Transporta <strong>PF</strong></span></a>
+<nav class="portal-menu" aria-label="Navegação"><a class="active" href="./aluno.html">Início</a><a href="#atividades">Atividades</a><a href="#transporte">Meu transporte</a><a href="./perfil-configuracoes.html">Perfil</a></nav>
+<div class="portal-actions"><button class="portal-icon" id="themeToggle" aria-label="Alternar tema">◐</button><div class="portal-user"><div class="avatar" id="avatar">A</div><div class="user-copy"><strong id="userName">Aluno</strong><small>Área do aluno</small></div></div></div>
+</header>
+<main class="portal-main">
+<section class="hero"><div><span class="eyebrow">Área do aluno</span><h1>Olá, <span id="firstName">aluno</span> 👋</h1><p>Veja sua rotina de transporte, acompanhe suas presenças e mantenha seus dados atualizados.</p></div><div class="hero-badge">🎒</div></section>
+<section class="section"><div class="section-head"><div><h2>Resumo da sua rotina</h2><p>Informações importantes em um só lugar.</p></div></div>
+<div class="grid grid-3">
+<article class="card stat"><div class="stat-icon">✓</div><div><h3>Presenças registradas</h3><strong id="presencas">0</strong><small>Este período</small></div></article>
+<article class="card stat"><div class="stat-icon">🚌</div><div><h3>Transporte</h3><strong id="transporteStatus">Ativo</strong><small>Cadastro de transporte</small></div></article>
+<article class="card stat"><div class="stat-icon">📅</div><div><h3>Próximo embarque</h3><strong id="proximo">—</strong><small>Consulte sua rota</small></div></article>
+</div></section>
+<section class="section" id="atividades"><div class="section-head"><div><h2>Acesso rápido</h2><p>As tarefas que você mais utiliza.</p></div></div>
+<div class="grid grid-2">
+<a class="card quick" href="#transporte"><span class="quick-icon">🚌</span><span><h3>Meu transporte</h3><p>Veja informações da sua rota e embarque.</p></span><span class="arrow">→</span></a>
+<a class="card quick" href="./perfil-configuracoes.html"><span class="quick-icon">👤</span><span><h3>Meu perfil</h3><p>Atualize nome, telefone e preferências.</p></span><span class="arrow">→</span></a>
+<a class="card quick" href="#atividades"><span class="quick-icon">✓</span><span><h3>Minhas presenças</h3><p>Acompanhe seus registros de presença.</p></span><span class="arrow">→</span></a>
+<a class="card quick" href="./aluno.html"><span class="quick-icon">?</span><span><h3>Ajuda</h3><p>Encontre orientações sobre o sistema.</p></span><span class="arrow">→</span></a>
+</div></section>
+<section class="section" id="transporte"><div class="section-head"><div><h2>Meu transporte</h2><p>Dados vinculados ao seu cadastro.</p></div></div>
+<div class="card empty"><div><div class="empty-icon">🚌</div><h3 id="transportTitle">Transporte cadastrado</h3><p id="transportText">Quando os dados da sua rota estiverem disponíveis, eles aparecerão aqui.</p></div></div></section>
+<footer class="portal-footer">© 2026 Transporta PF · Área do aluno</footer>
+</main>
+<script type="module" src="../js/portal.js"></script>
+</body></html>

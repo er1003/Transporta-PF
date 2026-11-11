@@ -40,7 +40,7 @@ async function recusar() {
 supabase.auth.getSession().then(async ({ data }) => {
   const user = data?.session?.user;
   if (!user) return;
-  if (await acessoPermitido(user)) window.location.replace("./dashboard.html");
+  if (await acessoPermitido(user)) window.location.replace(perfil === "aluno" ? "./aluno.html" : "./trabalhador-publico.html");
 });
 
 form.addEventListener("submit", async (event) => {
@@ -78,7 +78,7 @@ form.addEventListener("submit", async (event) => {
     }
 
     showMessage(message, "Acesso autorizado! Redirecionando...", "success");
-    window.location.replace("./dashboard.html");
+    window.location.replace(perfil === "aluno" ? "./aluno.html" : "./trabalhador-publico.html");
   } catch (error) {
     console.error(error);
     const unconfirmed = /not confirmed/i.test(error?.message || "");
