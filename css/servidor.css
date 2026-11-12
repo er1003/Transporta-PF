@@ -1,0 +1,81 @@
+/* Área do servidor: layout com menu lateral. Usa os tokens e componentes de portal.css e viagens.css */
+.app { display: flex; min-height: 100vh; }
+.sidebar { flex: 0 0 264px; width: 264px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column;
+  gap: 18px; padding: 20px 14px; background: var(--portal-surface); border-right: 1px solid var(--portal-line); overflow-y: auto; }
+.side-user { display: flex; gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--portal-line); border-radius: 16px; background: var(--portal-bg); }
+.side-user strong { display: block; font-size: .92rem; line-height: 1.2; overflow-wrap: anywhere; }
+.side-user small { color: var(--portal-muted); font-size: .8rem; font-weight: 600; }
+.side-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.side-nav a, .side-out { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 14px; border-radius: 12px;
+  font: inherit; font-weight: 700; font-size: .95rem; color: var(--portal-muted); text-decoration: none; background: none; border: 0; cursor: pointer; text-align: left; width: 100%; }
+.side-nav a:hover, .side-out:hover { background: var(--portal-soft); color: var(--portal-primary); }
+.side-nav a.active { background: var(--portal-soft); color: var(--portal-primary); }
+.side-nav .ico { width: 24px; text-align: center; }
+.side-out { border-top: 1px solid var(--portal-line); border-radius: 0 0 12px 12px; margin-top: 4px; }
+
+.app-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.app-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 12px; min-height: 60px;
+  padding: 8px 24px; padding-top: calc(8px + env(safe-area-inset-top, 0px)); background: var(--portal-bg); border-bottom: 1px solid var(--portal-line); }
+.app-top h2 { margin: 0; font-size: 1.05rem; flex: 1; }
+.app-top .menu-btn { display: none; }
+.app-content { width: 100%; max-width: 1040px; margin: 0 auto; padding: 24px 24px 56px; }
+.sidebar-overlay { display: none; }
+
+.page-head { margin-bottom: 22px; }
+.page-head .eyebrow { color: var(--portal-primary); font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.page-head h1 { margin: 4px 0 6px; font-size: clamp(1.5rem, 4vw, 2rem); color: var(--portal-text); }
+.page-head p { margin: 0; color: var(--portal-muted); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.section-title { margin: 28px 0 12px; font-size: 1.1rem; }
+
+.progress { height: 10px; border-radius: 99px; background: var(--portal-line); overflow: hidden; }
+.progress > span { display: block; height: 100%; background: var(--portal-success); transition: width .3s; }
+.prog-label { display: flex; justify-content: space-between; font-size: .82rem; font-weight: 700; color: var(--portal-muted); margin-bottom: 6px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.chip { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--portal-line); background: var(--portal-surface);
+  color: var(--portal-text); font: inherit; font-weight: 700; font-size: .88rem; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--portal-primary); border-color: var(--portal-primary); color: #fff; }
+:root[data-theme=dark] .chip[aria-pressed="true"] { color: #031745; }
+
+.btn-lg { min-height: 52px; padding: 0 22px; font-size: 1rem; }
+a.btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.badge.pendente { background: #fdf0dc; color: #b45309; }
+:root[data-theme=dark] .badge.pendente { background: #33260f; color: #f2b45c; }
+
+.aluno-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between;
+  padding: 14px 16px; margin-bottom: 10px; background: var(--portal-surface); border: 1px solid var(--portal-line);
+  border-left: 6px solid #d9892b; border-radius: 14px; }
+.aluno-row.embarcado { border-left-color: var(--portal-success); }
+.aluno-row .nome { font-weight: 800; font-size: 1.02rem; overflow-wrap: anywhere; }
+.aluno-row .sub { color: var(--portal-muted); font-size: .82rem; }
+.aluno-row .lado { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sticky-resumo { position: sticky; top: 60px; z-index: 10; padding-bottom: 8px; background: var(--portal-bg); }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 100;
+  max-width: min(92vw, 460px); padding: 14px 20px; border-radius: 14px; font-weight: 700; box-shadow: var(--portal-shadow); }
+.toast.success { background: var(--portal-success); color: #fff; }
+.toast.error { background: var(--portal-danger); color: #fff; }
+.toast.info { background: var(--portal-navy); color: #fff; }
+.skeleton { height: 88px; border-radius: 16px; background: linear-gradient(90deg, var(--portal-line), var(--portal-surface), var(--portal-line)); background-size: 200% 100%; animation: sk 1.2s infinite; margin-bottom: 12px; }
+@keyframes sk { to { background-position: -200% 0; } }
+.linha-aluno-hist { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--portal-line); font-size: .88rem; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .sidebar { position: fixed; z-index: 60; left: 0; top: 0; transform: translateX(-100%); transition: transform .2s; box-shadow: var(--portal-shadow); }
+  .sidebar.open { transform: none; }
+  .sidebar-overlay.open { display: block; position: fixed; inset: 0; z-index: 50; background: rgba(3, 23, 69, .45); }
+  .app-top .menu-btn { display: grid; }
+  .app-top { padding-left: 14px; padding-right: 14px; }
+  .app-content { padding: 18px 14px 56px; }
+  .grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .btn-sm { min-height: 44px; }
+}
+@media (max-width: 520px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .aluno-row .lado, .aluno-row .lado .btn { width: 100%; }
+  .aluno-row .lado { justify-content: space-between; }
+}
+
+/* Alvos de toque confortáveis (mín. 44px) nos botões do topo */
+.app-top .portal-icon { min-width: 44px; min-height: 44px; }
