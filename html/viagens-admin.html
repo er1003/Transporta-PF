@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#031745">
+    <title>Gerenciamento de viagens | Transporta PF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../global/global.css">
+    <link rel="stylesheet" href="../css/portal.css">
+    <link rel="stylesheet" href="../css/viagens.css">
+    <script src="../global/global.js"></script>
+</head>
+
+<!-- data-page="viagens": portal.js cuida de sessão, tema, menu mobile e identidade do usuário -->
+<body data-page="viagens">
+    <header class="portal-top">
+        <button class="portal-icon mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+        <a class="portal-brand" href="./trabalhador-publico.html"><span class="brand-mark">T</span><span>Transporta
+                <strong>PF</strong></span></a>
+        <nav class="portal-menu" aria-label="Navegação"><a href="./trabalhador-publico.html">Visão geral</a><a
+                class="active" href="./viagens-admin.html">Viagens</a><a
+                href="./perfil-configuracoes.html">Configurações</a></nav>
+        <div class="portal-actions"><button class="portal-icon" id="themeToggle" aria-label="Alternar tema">◐</button>
+            <div class="portal-user">
+                <div class="avatar" id="avatar">S</div>
+                <div class="user-copy"><strong id="userName">Servidor</strong><small>Trabalhador público</small></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="portal-main">
+        <section class="hero">
+            <div><span class="eyebrow">Administração</span>
+                <h1>Gerenciamento de viagens</h1>
+                <p>Organize ônibus, motorista, monitora e alunos de cada viagem do transporte escolar.</p>
+            </div>
+            <div class="hero-badge">🚌</div>
+        </section>
+
+        <div class="message" id="globalMessage" role="status" aria-live="polite"></div>
+
+        <!-- Formulário (criar / editar) -->
+        <section class="card panel" id="formPanel" hidden>
+            <h3 id="formTitle">Nova viagem</h3>
+            <form id="viagemForm" novalidate>
+                <div class="form-grid">
+                    <div class="field"><label for="fData">Data *</label><input type="date" id="fData" required></div>
+                    <div class="field"><label for="fHorario">Horário *</label><input type="time" id="fHorario" required></div>
+                    <div class="field"><label for="fEscola">Escola *</label><select id="fEscola" required></select></div>
+                    <div class="field"><label for="fTurno">Turno *</label>
+                        <select id="fTurno" required>
+                            <option value="">Selecione</option>
+                            <option value="manha">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noite">Noite</option>
+                        </select></div>
+                    <div class="field"><label for="fVeiculo">Ônibus *</label><select id="fVeiculo" required></select></div>
+                    <div class="field"><label for="fMotorista">Motorista *</label><select id="fMotorista" required></select></div>
+                    <div class="field"><label for="fMonitora">Monitora *</label><select id="fMonitora" required></select></div>
+                    <div class="field"><label for="fStatus">Situação</label>
+                        <select id="fStatus">
+                            <option value="planejada">Planejada</option>
+                            <option value="em_andamento">Em andamento</option>
+                            <option value="concluida">Concluída</option>
+                        </select></div>
+                    <div class="field"><label for="fOrigem">Origem</label><input type="text" id="fOrigem" maxlength="120"></div>
+                    <div class="field"><label for="fDestino">Destino</label><input type="text" id="fDestino" maxlength="120"></div>
+                </div>
+                <div class="message" id="formMessage" role="alert"></div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelForm">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="saveForm">Salvar viagem</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Alunos da viagem -->
+        <section class="card panel" id="alunosPanel" hidden>
+            <h3 id="alunosTitle">Alunos da viagem</h3>
+            <div class="toolbar">
+                <div class="field grow"><label for="alunoBusca">Buscar aluno</label>
+                    <input type="search" id="alunoBusca" placeholder="Digite parte do nome"></div>
+                <span class="contador" id="alunoContador" aria-live="polite"></span>
+            </div>
+            <div class="aluno-pick" id="alunoLista"></div>
+            <div class="message" id="alunosMessage" role="alert"></div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="fecharAlunos">Fechar</button>
+                <button type="button" class="btn btn-primary" id="salvarAlunos">Salvar alunos</button>
+            </div>
+        </section>
+
+        <!-- Consulta -->
+        <section class="section">
+            <div class="section-head">
+                <div>
+                    <h2>Viagens cadastradas</h2>
+                    <p>Consulte, edite, vincule alunos ou cancele.</p>
+                </div>
+                <button class="btn btn-primary" id="novaViagem" type="button">+ Nova viagem</button>
+            </div>
+            <div class="toolbar">
+                <div class="field"><label for="filtroData">Data</label><input type="date" id="filtroData"></div>
+                <div class="field"><label for="filtroEscola">Escola</label><select id="filtroEscola"></select></div>
+                <div class="field"><label for="filtroTurno">Turno</label>
+                    <select id="filtroTurno">
+                        <option value="">Todos</option>
+                        <option value="manha">Manhã</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noite">Noite</option>
+                    </select></div>
+                <div class="field"><label for="filtroStatus">Situação</label>
+                    <select id="filtroStatus">
+                        <option value="">Todas</option>
+                        <option value="planejada">Planejada</option>
+                        <option value="em_andamento">Em andamento</option>
+                        <option value="concluida">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select></div>
+                <button class="btn btn-secondary" id="limparFiltros" type="button">Limpar</button>
+            </div>
+            <div id="listaViagens" aria-live="polite"></div>
+        </section>
+
+        <!-- Cadastros de apoio provisórios: só até existirem as telas dos responsáveis -->
+        <section class="card panel">
+            <details class="apoio">
+                <summary>Cadastros de apoio (escolas, monitoras, escola/turno do aluno)</summary>
+                <form id="escolaForm" class="form-grid" novalidate>
+                    <div class="field span-2"><label for="nEscola">Nova escola</label>
+                        <input type="text" id="nEscola" maxlength="120" placeholder="Nome da escola"></div>
+                    <div class="form-actions span-2"><button class="btn btn-secondary" type="submit">Cadastrar escola</button></div>
+                </form>
+                <form id="monitoraForm" class="form-grid" novalidate>
+                    <div class="field"><label for="nMonNome">Nova monitora</label>
+                        <input type="text" id="nMonNome" maxlength="120" placeholder="Nome"></div>
+                    <div class="field"><label for="nMonEmail">E-mail de login (opcional)</label>
+                        <input type="text" id="nMonEmail" maxlength="120"></div>
+                    <div class="field span-2"><label for="nMonUid">ID do usuário no Supabase (opcional)</label>
+                        <input type="text" id="nMonUid" maxlength="60">
+                        <small>Liga o login da monitora ao cadastro dela, usado no painel da monitora.</small></div>
+                    <div class="form-actions span-2"><button class="btn btn-secondary" type="submit">Cadastrar monitora</button></div>
+                </form>
+                <form id="alunoEscolaForm" class="form-grid" novalidate>
+                    <div class="field"><label for="aeAluno">Aluno</label><select id="aeAluno"></select></div>
+                    <div class="field"><label for="aeEscola">Escola</label><select id="aeEscola"></select></div>
+                    <div class="field"><label for="aeTurno">Turno</label>
+                        <select id="aeTurno"><option value="manha">Manhã</option><option value="tarde">Tarde</option><option value="noite">Noite</option></select></div>
+                    <div class="form-actions"><button class="btn btn-secondary" type="submit">Definir escola/turno</button></div>
+                </form>
+                <div class="message" id="apoioMessage" role="status"></div>
+            </details>
+        </section>
+
+        <footer class="portal-footer">© 2026 Transporta PF · Gerenciamento de viagens</footer>
+    </main>
+    <script type="module" src="../js/portal.js"></script>
+    <script type="module" src="../js/viagens-admin.js"></script>
+</body>
+
+</html>
