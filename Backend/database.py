@@ -61,6 +61,7 @@ def init_db():
             FOREIGN KEY (veiculo_id) REFERENCES veiculos(id)
         );
         """)
+<<<<<<< HEAD
         _migrar_modulo_viagens(connection)
 
 
@@ -136,3 +137,5 @@ def _migrar_modulo_viagens(connection):
     CREATE INDEX IF NOT EXISTS idx_viagem_alunos_viagem ON viagem_alunos(viagem_id);
     CREATE INDEX IF NOT EXISTS idx_embarques_viagem ON embarques(viagem_id);
     """)
+=======
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035

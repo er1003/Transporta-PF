@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import unicodedata
 from ..database import get_connection
 from ..models.viagem import Viagem
@@ -8,6 +9,11 @@ def chave_nome(nome):
     return "".join(c for c in sem_acento if unicodedata.category(c) != "Mn").casefold()
 
 
+=======
+from ..database import get_connection
+from ..models.viagem import Viagem
+
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
 class ViagemDAO:
     def listar(self):
         with get_connection() as c:
@@ -23,12 +29,19 @@ class ViagemDAO:
         with get_connection() as c:
             cur = c.execute(
                 """INSERT INTO viagens
+<<<<<<< HEAD
                 (data_viagem,origem,destino,motorista_id,veiculo_id,status,
                  escola_id,turno,horario,monitora_id)
                 VALUES (?,?,?,?,?,?,?,?,?,?)""",
                 (item.data_viagem, item.origem, item.destino,
                  item.motorista_id, item.veiculo_id, item.status,
                  item.escola_id, item.turno, item.horario, item.monitora_id)
+=======
+                (data_viagem,origem,destino,motorista_id,veiculo_id,status)
+                VALUES (?,?,?,?,?,?)""",
+                (item.data_viagem, item.origem, item.destino,
+                 item.motorista_id, item.veiculo_id, item.status)
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
             )
             item.id = cur.lastrowid
         return item
@@ -37,11 +50,17 @@ class ViagemDAO:
         with get_connection() as c:
             c.execute(
                 """UPDATE viagens SET data_viagem=?,origem=?,destino=?,
+<<<<<<< HEAD
                 motorista_id=?,veiculo_id=?,status=?,
                 escola_id=?,turno=?,horario=?,monitora_id=? WHERE id=?""",
                 (item.data_viagem, item.origem, item.destino,
                  item.motorista_id, item.veiculo_id, item.status,
                  item.escola_id, item.turno, item.horario, item.monitora_id, item.id)
+=======
+                motorista_id=?,veiculo_id=?,status=? WHERE id=?""",
+                (item.data_viagem, item.origem, item.destino,
+                 item.motorista_id, item.veiculo_id, item.status, item.id)
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
             )
         return self.buscar_por_id(item.id)
 
@@ -49,6 +68,7 @@ class ViagemDAO:
         with get_connection() as c:
             cur = c.execute("DELETE FROM viagens WHERE id=?", (id_,))
             return cur.rowcount > 0
+<<<<<<< HEAD
 
 
     # ------------------------------------------------------------------
@@ -212,3 +232,5 @@ class ViagemDAO:
         lista = [dict(r, vinculado=bool(r["vinculado"])) for r in rows]
         lista.sort(key=lambda a: chave_nome(a["nome"]))
         return lista
+=======
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035

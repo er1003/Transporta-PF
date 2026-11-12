@@ -42,6 +42,7 @@ Para subir no github atráves do git:
 - `git commit -m " " ou git commit --allow-empty-message -m ""`
 - `git Branch -M origin main`
 -  `git push`
+<<<<<<< HEAD
 
 ## Autenticação e permissões da API (módulo de viagens/embarque)
 
@@ -67,3 +68,5 @@ O servidor precisa de acesso à internet para validar o token no Supabase.
 Rotas protegidas: `/api/viagens`, `/api/escolas`, `/api/monitoras`, `/api/acesso` (admin) e `/api/servidor/*`
 (admin, monitora ou motorista, sempre limitado às viagens do próprio usuário). Rotas de alunos, motoristas e
 veículos continuam como estavam (módulos de outros integrantes) — ainda sem exigir login.
+=======
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035

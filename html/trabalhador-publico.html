@@ -3,15 +3,22 @@
 
 <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="theme-color" content="#031745">
     <title>Início | Transporta PF</title>
+=======
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#031745">
+    <title>Painel do trabalhador público | Transporta PF</title>
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../global/global.css">
     <link rel="stylesheet" href="../css/portal.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../css/viagens.css">
     <link rel="stylesheet" href="../css/servidor.css">
     <script src="../global/global.js"></script>
@@ -25,3 +32,107 @@
 </body>
 
 </html>
+=======
+    <script src="../global/global.js"></script>
+</head>
+
+<body data-page="trabalhador">
+    <header class="portal-top">
+        <button class="portal-icon mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+        <a class="portal-brand" href="./trabalhador-publico.html"><span class="brand-mark">T</span><span>Transporta
+                <strong>PF</strong></span></a>
+        <nav class="portal-menu" aria-label="Navegação"><a class="active" href="./trabalhador-publico.html">Visão
+                geral</a><a href="#alunos">Alunos</a><a href="#rotas">Rotas</a><a
+                href="./perfil-configuracoes.html">Configurações</a></nav>
+        <div class="portal-actions"><button class="portal-icon" id="themeToggle" aria-label="Alternar tema">◐</button>
+            <div class="portal-user">
+                <div class="avatar" id="avatar">S</div>
+                <div class="user-copy"><strong id="userName">Servidor</strong><small>Trabalhador público</small></div>
+            </div>
+        </div>
+    </header>
+    <main class="portal-main">
+        <section class="hero">
+            <div><span class="eyebrow">Painel operacional</span>
+                <h1>Olá, <span id="firstName">servidor</span>.</h1>
+                <p>Acompanhe a operação do transporte escolar e tenha uma visão rápida dos principais indicadores.</p>
+            </div>
+            <div class="hero-badge">🚌</div>
+        </section>
+        <section class="section">
+            <div class="section-head">
+                <div>
+                    <h2>Visão geral</h2>
+                    <p>Resumo da operação cadastrada.</p>
+                </div>
+            </div>
+            <div class="grid grid-3">
+                <article class="card stat">
+                    <div class="stat-icon">🎒</div>
+                    <div>
+                        <h3>Alunos</h3><strong id="alunosCount">0</strong><small>Cadastros disponíveis</small>
+                    </div>
+                </article>
+                <article class="card stat">
+                    <div class="stat-icon">🚌</div>
+                    <div>
+                        <h3>Veículos</h3><strong id="veiculosCount">0</strong><small>Frota cadastrada</small>
+                    </div>
+                </article>
+                <article class="card stat">
+                    <div class="stat-icon">📍</div>
+                    <div>
+                        <h3>Rotas</h3><strong id="rotasCount">0</strong><small>Rotas cadastradas</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="section" id="alunos">
+            <div class="section-head">
+                <div>
+                    <h2>Gestão rápida</h2>
+                    <p>Atalhos para as tarefas do dia a dia.</p>
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <a class="card quick" href="#alunos"><span class="quick-icon">🎒</span><span>
+                        <h3>Alunos</h3>
+                        <p>Consulte os alunos vinculados ao transporte.</p>
+                    </span><span class="arrow">→</span></a>
+                <a class="card quick" href="#rotas"><span class="quick-icon">📍</span><span>
+                        <h3>Rotas</h3>
+                        <p>Organize e acompanhe as rotas escolares.</p>
+                    </span><span class="arrow">→</span></a>
+                <a class="card quick" href="#veiculos"><span class="quick-icon">🚌</span><span>
+                        <h3>Frota</h3>
+                        <p>Visualize os veículos cadastrados.</p>
+                    </span><span class="arrow">→</span></a>
+                <a class="card quick" href="./perfil-configuracoes.html"><span class="quick-icon">⚙</span><span>
+                        <h3>Minha conta</h3>
+                        <p>Atualize seus dados e preferências.</p>
+                    </span><span class="arrow">→</span></a>
+            </div>
+        </section>
+        <section class="section" id="rotas">
+            <div class="section-head">
+                <div>
+                    <h2>Atividade recente</h2>
+                    <p>Eventos da operação aparecerão aqui quando houver registros.</p>
+                </div>
+            </div>
+            <div class="card empty">
+                <div>
+                    <div class="empty-icon">📊</div>
+                    <h3>Nenhuma atividade registrada</h3>
+                    <p>O painel está pronto para receber os dados reais do seu sistema.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="veiculos"></section>
+        <footer class="portal-footer">© 2026 Transporta PF · Painel do trabalhador público</footer>
+    </main>
+    <script type="module" src="../js/portal.js"></script>
+</body>
+
+</html>
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035

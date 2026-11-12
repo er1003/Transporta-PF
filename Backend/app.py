@@ -6,11 +6,14 @@ from .controllers.aluno_controller import bp as aluno_bp
 from .controllers.motorista_controller import bp as motorista_bp
 from .controllers.veiculo_controller import bp as veiculo_bp
 from .controllers.viagem_controller import bp as viagem_bp
+<<<<<<< HEAD
 from .controllers.escola_controller import bp as escola_bp
 from .controllers.monitora_controller import bp as monitora_bp
 from .controllers.me_controller import bp as me_bp
 from .controllers.servidor_controller import bp as servidor_bp
 from .controllers.acesso_controller import bp as acesso_bp
+=======
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
 
 def create_app():
     app = Flask(__name__)
@@ -21,11 +24,14 @@ def create_app():
     app.register_blueprint(motorista_bp)
     app.register_blueprint(veiculo_bp)
     app.register_blueprint(viagem_bp)
+<<<<<<< HEAD
     app.register_blueprint(escola_bp)
     app.register_blueprint(monitora_bp)
     app.register_blueprint(me_bp)
     app.register_blueprint(servidor_bp)
     app.register_blueprint(acesso_bp)
+=======
+>>>>>>> f87bf6d39891476c1ebdb9ddabb213f75f09b035
 
     @app.get("/api/health")
     def health():
