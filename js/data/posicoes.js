@@ -1,0 +1,38 @@
+/* Posições dos pontos no mapa: { "id-do-ponto": [latitude, longitude] }.
+ * Gere este conteúdo em html/pontos-editor.html (botão "Copiar posicoes.js") e cole aqui.
+ * Pontos fora desta lista aparecem na lista da tela do aluno como "posição não definida".
+ */
+export const POSICOES = {
+  "integracao-terminal": [-21.85360, -47.479990],
+  "vila-sibilla": null,
+  "sergio-dorneles": null,
+  "jd-independencia": null,
+  "jose-gomes": null,
+  "santa-luzia": null,
+  "granjeiros": null,
+  "porto-novo": null,
+  "centro": null,
+  "santa-cruz": null,
+  "paschoal-salzano": null,
+  "centenario": null,
+  "vila-real": null,
+  "porto-bello-i": null,
+  "paulo-calisto": null,
+  "porto-bello-ii": null,
+  "santo-afonso": null,
+  "cristo": null,
+  "anesia": null,
+  "aguas-claras": null,
+  "sao-manoel": null,
+  "jd-dalva": null,
+  "rodoviaria": null,
+  "primavera": null,
+  "atacadao": null,
+  "santa-maria": null,
+  "recreio-bela-vista": null,
+  "aeroporto": null,
+  "cefer": null,
+  "santa-rosa": null,
+  "serra-d-agua": null,
+  "rodoviaria": [-21.85807, -47.4875],
+};

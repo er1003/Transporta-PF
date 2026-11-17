@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#031745" />
+    <title>Área do aluno | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <link rel="stylesheet" href="../css/portal.css" />
+    <link rel="stylesheet" href="../css/aluno.css" />
+    <script src="../global/global.js"></script>
+  </head>
+  <body data-page="aluno">
+    <header class="portal-top">
+      <button class="portal-icon mobile-menu" id="mobileMenu" aria-label="Abrir menu" aria-controls="alunoNav">☰</button>
+      <a class="portal-brand" href="#inicio" data-view-link="inicio"
+        ><span class="brand-mark">T</span
+        ><span>Transporta <strong>PF</strong></span></a
+      >
+      <nav class="portal-menu" id="alunoNav" aria-label="Navegação">
+        <a href="#inicio" data-view-link="inicio" class="active">Início</a>
+        <a href="#mapa" data-view-link="mapa">Mapa e horários</a>
+        <a href="#viagens" data-view-link="viagens">Minhas viagens</a>
+        <a href="#conta" data-view-link="conta">Conta</a>
+      </nav>
+      <div class="portal-actions">
+        <button class="portal-icon" data-theme-toggle aria-label="Alternar tema">◐</button>
+        <a class="portal-user" href="#conta" data-view-link="conta" aria-label="Minha conta">
+          <div class="avatar" id="avatar">A</div>
+          <div class="user-copy">
+            <strong id="userName">Aluno</strong><small>Área do aluno</small>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <main class="portal-main">
+      <!-- ===================== INÍCIO ===================== -->
+      <div class="view" data-view="inicio">
+        <section class="hero">
+          <div>
+            <span class="eyebrow">Área do aluno</span>
+            <h1>Olá, <span id="firstName">aluno</span> 👋</h1>
+            <p>
+              Encontre pontos de ônibus e horários no mapa, acompanhe suas
+              viagens e mantenha sua conta em dia.
+            </p>
+          </div>
+          <div class="hero-badge">🎒</div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Resumo da sua rotina</h2>
+              <p>Informações importantes em um só lugar.</p>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <article class="card stat">
+              <div class="stat-icon">🚌</div>
+              <div>
+                <h3>Viagens realizadas</h3>
+                <strong id="statTotal">0</strong
+                ><small id="statMes">0 neste mês</small>
+              </div>
+            </article>
+            <article class="card stat">
+              <div class="stat-icon">📍</div>
+              <div>
+                <h3>Ponto favorito</h3>
+                <strong class="stat-text" id="statFavorito">—</strong
+                ><small>Defina no mapa</small>
+              </div>
+            </article>
+            <article class="card stat">
+              <div class="stat-icon">⏰</div>
+              <div>
+                <h3>Próximo ônibus</h3>
+                <strong id="statProximo">—</strong
+                ><small id="statProximoInfo">No seu ponto favorito</small>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2>Acesso rápido</h2>
+              <p>As tarefas que você mais utiliza.</p>
+            </div>
+          </div>
+          <div class="grid grid-2">
+            <a class="card quick" href="#mapa" data-view-link="mapa"
+              ><span class="quick-icon">🗺️</span
+              ><span><h3>Mapa e horários</h3><p>Veja todos os pontos de ônibus da cidade.</p></span
+              ><span class="arrow">→</span></a
+            >
+            <a class="card quick" href="#viagens" data-view-link="viagens"
+              ><span class="quick-icon">🚌</span
+              ><span><h3>Minhas viagens</h3><p>Registre e acompanhe as viagens realizadas.</p></span
+              ><span class="arrow">→</span></a
+            >
+            <a class="card quick" href="#conta" data-view-link="conta"
+              ><span class="quick-icon">👤</span
+              ><span><h3>Configurações da conta</h3><p>Atualize nome, telefone e preferências.</p></span
+              ><span class="arrow">→</span></a
+            >
+            <a class="card quick" href="./recuperar-senha.html"
+              ><span class="quick-icon">🔒</span
+              ><span><h3>Alterar senha</h3><p>Receba um link para criar uma nova senha.</p></span
+              ><span class="arrow">→</span></a
+            >
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== MAPA ===================== -->
+      <div class="view" data-view="mapa" hidden>
+        <section class="hero hero-compact">
+          <div>
+            <span class="eyebrow">Transporte</span>
+            <h1>Mapa e horários</h1>
+            <p>Toque em um ponto para ver as linhas que passam por ele e os horários do dia.</p>
+          </div>
+          <div class="hero-badge">🗺️</div>
+        </section>
+
+        <div class="demo-note" id="demoNote" role="note" hidden>
+          <strong>Dados de exemplo.</strong> Os pontos e horários exibidos são fictícios até serem substituídos pelos dados reais (<code>js/data/pontos.js</code>).
+        </div>
+
+        <section class="section map-section">
+          <div class="map-tools">
+            <div class="field">
+              <label for="buscaPonto">Buscar ponto</label>
+              <input id="buscaPonto" type="search" placeholder="Nome ou endereço" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="filtroLinha">Linha</label>
+              <select id="filtroLinha"><option value="">Todas as linhas</option></select>
+            </div>
+          </div>
+          <div class="map-layout">
+            <div class="card map-card">
+              <div id="map" role="application" aria-label="Mapa com os pontos de ônibus"></div>
+              <p class="map-fallback" id="mapFallback" hidden>
+                Não foi possível carregar o mapa (verifique sua conexão). A lista de pontos ao lado continua disponível.
+              </p>
+            </div>
+            <aside class="card stops" aria-label="Lista de pontos">
+              <h3><span id="stopsCount">0</span> pontos</h3>
+              <ul id="stopsList" class="stops-list"></ul>
+              <p class="empty-list" id="stopsEmpty" hidden>Nenhum ponto encontrado.</p>
+            </aside>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== VIAGENS ===================== -->
+      <div class="view" data-view="viagens" hidden>
+        <section class="hero hero-compact">
+          <div>
+            <span class="eyebrow">Controle</span>
+            <h1>Minhas viagens</h1>
+            <p>Registre cada viagem realizada e acompanhe a quantidade por mês.</p>
+          </div>
+          <div class="hero-badge">🚌</div>
+        </section>
+
+        <section class="section">
+          <div class="grid grid-3">
+            <article class="card stat">
+              <div class="stat-icon">✓</div>
+              <div><h3>Total de viagens</h3><strong id="vTotal">0</strong><small>Desde o primeiro registro</small></div>
+            </article>
+            <article class="card stat">
+              <div class="stat-icon">📅</div>
+              <div><h3>Neste mês</h3><strong id="vMes">0</strong><small id="vMesNome">—</small></div>
+            </article>
+            <article class="card stat">
+              <div class="stat-icon">🕘</div>
+              <div><h3>Última viagem</h3><strong class="stat-text" id="vUltima">—</strong><small id="vUltimaInfo">Nenhum registro</small></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section viagens-grid">
+          <div class="card">
+            <h2 class="card-title">Registrar viagem</h2>
+            <form id="viagemForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="vData">Data</label>
+                  <input id="vData" type="date" required />
+                </div>
+                <div class="field">
+                  <label for="vSentido">Sentido</label>
+                  <select id="vSentido">
+                    <option value="ida">Ida (casa → escola)</option>
+                    <option value="volta">Volta (escola → casa)</option>
+                  </select>
+                </div>
+                <div class="field span-2">
+                  <label for="vPonto">Ponto de embarque</label>
+                  <select id="vPonto" required><option value="">Selecione</option></select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Registrar viagem</button>
+              </div>
+              <div class="message" id="viagemMessage" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title">Viagens por mês</h2>
+            <div class="bars" id="vBars" role="img" aria-label="Gráfico de viagens por mês"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div><h2>Histórico</h2><p>Seus registros mais recentes primeiro.</p></div>
+          </div>
+          <div class="card">
+            <ul class="list" id="vLista"></ul>
+            <p class="empty-list" id="vVazio">Você ainda não registrou nenhuma viagem.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== CONTA ===================== -->
+      <div class="view" data-view="conta" hidden>
+        <section class="hero hero-compact">
+          <div>
+            <span class="eyebrow">Minha conta</span>
+            <h1>Configurações da conta</h1>
+            <p>Gerencie seus dados pessoais e personalize a experiência no Transporta PF.</p>
+          </div>
+          <div class="hero-badge">⚙</div>
+        </section>
+
+        <section class="section conta-stack">
+          <div class="card profile-card">
+            <div class="profile-head">
+              <div class="profile-avatar" id="profileAvatar">A</div>
+              <div>
+                <h2>Dados pessoais</h2>
+                <p>Atualize as informações exibidas na sua conta.</p>
+              </div>
+            </div>
+            <form id="profileForm">
+              <div class="form-grid" style="margin-top: 24px">
+                <div class="field">
+                  <label for="fullName">Nome completo</label>
+                  <input id="fullName" type="text" autocomplete="name" required />
+                  <small>Esse nome será usado nas telas do sistema.</small>
+                </div>
+                <div class="field">
+                  <label for="email">E-mail</label>
+                  <input id="email" type="email" disabled />
+                  <small>O e-mail é gerenciado pela autenticação.</small>
+                </div>
+                <div class="field">
+                  <label for="phone">Telefone</label>
+                  <input id="phone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" />
+                </div>
+                <div class="field">
+                  <label for="perfil">Perfil</label>
+                  <input id="perfil" type="text" disabled />
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit" id="saveProfile">Salvar alterações</button>
+              </div>
+              <div class="message" id="profileMessage" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="card profile-card">
+            <div class="profile-head">
+              <div class="profile-avatar">☀</div>
+              <div>
+                <h2>Preferências</h2>
+                <p>Escolha como o sistema deve se comportar.</p>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div><h3>Tema escuro</h3><p>Reduz o brilho da interface em ambientes escuros.</p></div>
+              <label class="tswitch" aria-label="Tema escuro"><input type="checkbox" id="darkMode" /><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><h3>Alto contraste</h3><p>Aumenta a diferença entre texto e fundo.</p></div>
+              <label class="tswitch" aria-label="Alto contraste"><input type="checkbox" id="contrastMode" /><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><h3>Fonte acessível</h3><p>Usa uma fonte mais simples para leitura.</p></div>
+              <label class="tswitch" aria-label="Fonte acessível"><input type="checkbox" id="fontMode" /><span class="slider"></span></label>
+            </div>
+          </div>
+
+          <div class="card profile-card">
+            <div class="profile-head">
+              <div class="profile-avatar">🔒</div>
+              <div>
+                <h2>Segurança</h2>
+                <p>Opções relacionadas ao acesso da sua conta.</p>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div><h3>Redefinir senha</h3><p>Receba um link para criar uma nova senha.</p></div>
+              <a class="btn btn-secondary" href="./recuperar-senha.html">Alterar senha</a>
+            </div>
+            <div class="settings-row">
+              <div><h3>Sair da conta</h3><p>Encerra a sessão neste dispositivo.</p></div>
+              <button class="btn btn-secondary" id="logoutButton" type="button">Sair</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="portal-footer">© 2026 Transporta PF · Área do aluno</footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="../js/aluno.js"></script>
+  </body>
+</html>

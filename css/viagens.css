@@ -1,0 +1,46 @@
+/* Telas de viagens (admin) — usa as variáveis e componentes de portal.css */
+/* global.css força h1 com a cor do texto; no .hero (fundo azul-marinho) o título precisa ser claro */
+.hero h1 { color: #fff; }
+.form-grid .field { margin-bottom: 0; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-bottom: 16px; }
+.toolbar .field { min-width: 160px; }
+.toolbar .grow { flex: 1; }
+.btn-danger { background: transparent; border: 1px solid var(--portal-danger); color: var(--portal-danger); }
+.btn-sm { min-height: 36px; padding: 0 12px; font-size: .78rem; }
+
+.viagem-card { display: grid; gap: 12px; padding: 18px; margin-bottom: 14px; }
+.viagem-top { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+.viagem-top h3 { margin: 0; font-size: 1rem; }
+.viagem-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 18px; font-size: .82rem; }
+.viagem-meta span { color: var(--portal-muted); display: block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.viagem-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .7rem; font-weight: 800; }
+.badge.planejada { background: var(--portal-soft); color: var(--portal-primary); }
+.badge.em_andamento { background: #fdf0dc; color: #b45309; }
+.badge.concluida, .badge.embarcado { background: #e7f7ed; color: var(--portal-success); }
+.badge.cancelada, .badge.pendente { background: #fdecec; color: var(--portal-danger); }
+:root[data-theme=dark] .badge.em_andamento { background: #33260f; color: #f2b45c; }
+:root[data-theme=dark] .badge.concluida, :root[data-theme=dark] .badge.embarcado { background: #0f2d20; color: #5fd68a; }
+:root[data-theme=dark] .badge.cancelada, :root[data-theme=dark] .badge.pendente { background: #3a1616; color: #ff8f8f; }
+
+.panel { padding: 22px; margin-bottom: 22px; }
+.panel[hidden] { display: none; }
+.panel h3 { margin: 0 0 14px; }
+.form-grid .span-2 { grid-column: 1 / -1; }
+.field .error-text { color: var(--portal-danger); font-size: .72rem; }
+
+.aluno-pick { max-height: 340px; overflow: auto; border: 1px solid var(--portal-line); border-radius: 12px; }
+.aluno-pick label { display: flex; gap: 10px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--portal-line); cursor: pointer; font-size: .85rem; }
+.aluno-pick label:last-child { border-bottom: 0; }
+.aluno-pick small { color: var(--portal-muted); margin-left: auto; }
+.contador { font-size: .8rem; font-weight: 700; color: var(--portal-muted); }
+.contador.cheio { color: var(--portal-danger); }
+
+details.apoio summary { cursor: pointer; font-weight: 800; }
+details.apoio .form-grid { margin-top: 14px; }
+
+@media (max-width: 720px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .toolbar .field { flex: 1 1 100%; }
+}

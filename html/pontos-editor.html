@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#031745" />
+    <title>Marcar pontos no mapa | Transporta PF</title>
+    <link rel="icon" type="image/svg+xml" href="../global/assets/logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../global/global.css" />
+    <link rel="stylesheet" href="../css/portal.css" />
+    <link rel="stylesheet" href="../css/aluno.css" />
+    <script src="../global/global.js"></script>
+  </head>
+  <body data-page="editor">
+    <header class="portal-top">
+      <button class="portal-icon mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+      <a class="portal-brand" href="./trabalhador-publico.html"><span class="brand-mark">T</span><span>Transporta <strong>PF</strong></span></a>
+      <nav class="portal-menu" aria-label="Navegação">
+        <a href="./trabalhador-publico.html">Visão geral</a>
+        <a href="./viagens-admin.html">Viagens</a>
+        <a class="active" href="./pontos-editor.html">Pontos no mapa</a>
+        <a href="./perfil-configuracoes.html">Configurações</a>
+      </nav>
+      <div class="portal-actions">
+        <button class="portal-icon" data-theme-toggle aria-label="Alternar tema">◐</button>
+        <div class="portal-user">
+          <div class="avatar" id="avatar">S</div>
+          <div class="user-copy"><strong id="userName">Servidor</strong><small>Trabalhador público</small></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="portal-main">
+      <section class="hero hero-compact">
+        <div>
+          <span class="eyebrow">Administração</span>
+          <h1>Marcar pontos no mapa</h1>
+          <p>Escolha um ponto na lista e clique no mapa onde ele fica. Arraste o pino para ajustar. Os horários já estão cadastrados.</p>
+        </div>
+        <div class="hero-badge">📍</div>
+      </section>
+
+      <section class="section">
+        <div class="editor-bar">
+          <p id="progresso" class="editor-progress" aria-live="polite"></p>
+          <div class="editor-actions">
+            <button class="btn btn-primary btn-sm" id="btnCopiar" type="button">Copiar posicoes.js</button>
+            <button class="btn btn-secondary btn-sm" id="btnBaixar" type="button">Baixar posicoes.js</button>
+            <button class="btn btn-secondary btn-sm" id="btnLimpar" type="button">Limpar marcações</button>
+          </div>
+        </div>
+        <div class="message" id="editorMsg" role="status" aria-live="polite"></div>
+        <div class="map-layout">
+          <div class="card map-card">
+            <div id="map" role="application" aria-label="Mapa para marcar pontos"></div>
+            <p class="map-fallback" id="mapFallback" hidden>Não foi possível carregar o mapa (verifique sua conexão).</p>
+          </div>
+          <aside class="card stops" aria-label="Pontos a marcar">
+            <h3>Pontos <small id="selecionado"></small></h3>
+            <ul id="lista" class="stops-list"></ul>
+          </aside>
+        </div>
+        <p class="editor-help">
+          Depois de marcar, clique em <strong>Copiar posicoes.js</strong> e cole o conteúdo no arquivo <code>js/data/posicoes.js</code> do projeto. Suas marcações ficam salvas neste navegador até lá.
+        </p>
+      </section>
+      <footer class="portal-footer">© 2026 Transporta PF · Marcação de pontos</footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="../js/pontos-editor.js"></script>
+  </body>
+</html>
